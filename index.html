@@ -214,6 +214,118 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
   .hero-stats{gap:1.75rem}
   .nav-right .nav-cta{display:none}
 }
+
+/* ── ENHANCED RESPONSIVENESS & POLISH ── */
+
+/* Smooth scrolling & selection color */
+::selection{background:rgba(0,229,255,0.25);color:var(--text)}
+
+/* Better card hover on touch devices */
+@media(hover:none){
+  .proj-card:hover,.exp-card:hover,.tool-chip:hover,.channel:hover{transform:none}
+}
+
+/* Tablet breakpoint */
+@media(max-width:768px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}
+  .hero-eyebrow{justify-content:center}
+  .hero-desc{margin:0 auto 2rem}
+  .hero-stats{justify-content:center}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .exp-grid{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem}
+  .form-row{grid-template-columns:1fr}
+  .cert-list{gap:0.65rem}
+  .nav-right .nav-cta{font-size:0.65rem;padding:0.4rem 0.85rem}
+}
+
+/* Small tablet */
+@media(max-width:600px){
+  .exp-grid{grid-template-columns:1fr}
+  .hero-photo-wrap{display:none}
+  .proj-header{flex-direction:column;align-items:flex-start}
+  .proj-header p{text-align:left;max-width:100%}
+}
+
+/* Project card - always full height description */
+.proj-card{min-height:320px}
+
+/* Better focus states for accessibility */
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+
+/* Smoother transitions everywhere */
+.proj-card,.exp-card,.channel,.tool-chip,.cert-card,.hl-item{
+  transition:transform 0.22s cubic-bezier(0.34,1.56,0.64,1),
+             border-color 0.22s ease,
+             box-shadow 0.22s ease;
+}
+
+/* Section tag animated underline */
+.section-tag{
+  display:inline-block;
+  position:relative;
+}
+
+/* Subtle scan line effect on hero */
+#home::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,229,255,0.01) 2px,
+    rgba(0,229,255,0.01) 4px
+  );
+  pointer-events:none;
+  z-index:0;
+}
+#home .hero-inner{position:relative;z-index:1}
+
+/* Tool chips grid on mobile */
+@media(max-width:480px){
+  .cat-items{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+  .tool-chip{justify-content:flex-start}
+  .hero-stats{gap:1.2rem}
+  .stat-num{font-size:1.4rem}
+  .hero-badge{display:none}
+  footer{flex-direction:column;text-align:center;gap:0.5rem}
+  .avail-box{padding:1.25rem}
+}
+
+/* Cert cards responsive */
+@media(max-width:768px){
+  .cert-card{width:100%}
+}
+
+/* Nav scroll behavior */
+nav{transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s}
+
+/* Timeline responsive */
+@media(max-width:480px){
+  .timeline{padding-left:1.25rem}
+  .tl-item::before{left:-1.4rem}
+}
+
+/* Better proj links spacing */
+.proj-links{margin-top:auto;padding-top:0.85rem}
+.proj-card{justify-content:flex-start}
+
+/* Highlight item border color variants */
+.hl-item:nth-child(2){border-left-color:var(--accent2)}
+.hl-item:nth-child(3){border-left-color:var(--accent3)}
+
+/* Print styles */
+@media print{
+  nav,#thankyou,footer{display:none}
+  body{background:white;color:black}
+}
 </style>
 </head>
 <body>
@@ -260,9 +372,9 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
         <a href="#contact" class="btn-ghost">Let's Connect</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">6+</div><div class="stat-label">Projects</div></div>
+        <div><div class="stat-num">8+</div><div class="stat-label">Projects</div></div>
         <div><div class="stat-num">3</div><div class="stat-label">Internships</div></div>
-        <div><div class="stat-num">5+</div><div class="stat-label">Certs</div></div>
+        <div><div class="stat-num">9+</div><div class="stat-label">Certs</div></div>
       </div>
     </div>
     <div class="hero-photo-wrap">
@@ -316,7 +428,7 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
           <div class="tl-desc">Supported maintenance of LV/HV electrical distribution infrastructure, field diagnostics, safety compliance checks, and system performance evaluations.</div>
         </div>
         <div class="tl-item">
-          <div class="tl-date">Sept 2021 – 2025</div>
+          <div class="tl-date">Sept 2021 – 2026</div>
           <div class="tl-role">BSc. Electronic &amp; Computer Engineering</div>
           <div class="tl-company">JKUAT · Nairobi, Kenya</div>
           <div class="tl-desc">Degree encompassing embedded systems, digital electronics, control theory, and software engineering. Engaged in engineering discourse and peer-led innovation through the Society of Engineering Students (SES).</div>
@@ -382,15 +494,15 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
       <span class="proj-badge b-done">Completed</span>
       <div class="proj-ico">🛡️</div>
       <div class="proj-title">SecureNet AI Cybersecurity Platform</div>
-      <div class="proj-prob">↳ Growing phishing threats and lack of enterprise user training</div>
-      <div class="proj-desc">Comprehensive cybersecurity platform integrating phishing simulation, real-time detection analytics, and interactive user training. Built Django backend modules, secure auth, and exportable reporting dashboards.</div>
-      <div class="proj-tech"><span class="tech-pill">Python</span><span class="tech-pill">Django</span><span class="tech-pill">React</span><span class="tech-pill">MySQL</span><span class="tech-pill">Git</span></div>
+      <div class="proj-prob">↳ Enterprises lack structured tools to measure & train phishing awareness</div>
+      <div class="proj-desc">Full-stack ethical phishing simulation platform built for internal security awareness training. Features a Gmail-clone phishing landing page, JWT-secured admin dashboard with role-based access (superadmin / admin / analyst), real-time analytics across 142+ simulated click events, CSV export, and campaign lifecycle management. Credentials are never stored — only a one-way SHA-256 hash indicator, immediately followed by an awareness message to the target. Built with Node.js, Express, MongoDB, and React.</div>
+      <div class="proj-tech"><span class="tech-pill">Node.js</span><span class="tech-pill">Express</span><span class="tech-pill">MongoDB</span><span class="tech-pill">React</span><span class="tech-pill">JWT</span><span class="tech-pill">Django</span><span class="tech-pill">bcrypt</span></div>
       <div class="proj-links">
         <a href="https://github.com/sikolia-2/securanet-ai-website" target="_blank" rel="noopener" class="proj-link pl-gh">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          Website
+          Website Repo
         </a>
-        <a href="https://github.com/sikolia-2/SecureNet-AI-PhishingSim" target="_blank" rel="noopener" class="proj-link pl-gh2">
+        <a href="https://github.com/sikolia-2/SecureNet-phishing" target="_blank" rel="noopener" class="proj-link pl-gh2">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           Phishing Sim
         </a>
@@ -403,9 +515,9 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
       <span class="proj-badge b-dev">In Development</span>
       <div class="proj-ico">🔐</div>
       <div class="proj-title">Automated Door Lock with M-Pesa</div>
-      <div class="proj-prob">↳ Insecure, manual access control for commercial premises</div>
-      <div class="proj-desc">Smart access control system integrating M-Pesa payment verification via the Daraja API for automated door lock management. Combines embedded hardware with secure, cashless, remotely managed entry control.</div>
-      <div class="proj-tech"><span class="tech-pill">Arduino</span><span class="tech-pill">Daraja API</span><span class="tech-pill">Python</span><span class="tech-pill">Embedded C</span><span class="tech-pill">IoT</span></div>
+      <div class="proj-prob">↳ Pay-per-use storage units need cashless, self-service access control</div>
+      <div class="proj-desc">Production-ready access control system for shared self-service storage units. Customers enter their Safaricom number on a 4×4 keypad — the ESP32 triggers an M-Pesa STK push via Daraja API, opens the solenoid lock on payment confirmation, and bills KES 2/minute on checkout. Features 4 independent access modes (keypad+M-Pesa, SMS admin override, dashboard admin unlock, physical button), SIM800L GSM backup, tamper detection with 10-second alert escalation, a full Django REST backend with 8 API endpoints, and a live web dashboard. All credentials stored in ESP32 NVS — never hardcoded.</div>
+      <div class="proj-tech"><span class="tech-pill">ESP32</span><span class="tech-pill">Django</span><span class="tech-pill">Daraja API</span><span class="tech-pill">SIM800L</span><span class="tech-pill">Embedded C</span><span class="tech-pill">REST API</span><span class="tech-pill">SQLite/PostgreSQL</span></div>
       <div class="proj-links">
         <a href="https://github.com/sikolia-2/door-lock-system" target="_blank" rel="noopener" class="proj-link pl-gh">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -419,10 +531,10 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
       <div class="proj-num">03</div>
       <span class="proj-badge b-active">Active</span>
       <div class="proj-ico">⚡</div>
-      <div class="proj-title">Electricity Metering &amp; Theft Detection</div>
-      <div class="proj-prob">↳ Revenue losses from undetected electricity theft</div>
-      <div class="proj-desc">Monitoring framework tracking real-time electricity consumption patterns, identifying anomalies indicative of tampering or illegal connections, and generating operator alerts to improve distribution accountability.</div>
-      <div class="proj-tech"><span class="tech-pill">Arduino</span><span class="tech-pill">Sensors</span><span class="tech-pill">Python</span><span class="tech-pill">SQL</span><span class="tech-pill">Analytics</span></div>
+      <div class="proj-title">Blockchain Electricity Metering &amp; Theft Detection</div>
+      <div class="proj-prob">↳ Power utilities lose significant revenue to undetected tampering & illegal connections</div>
+      <div class="proj-desc">Real-time electricity monitoring system combining embedded hardware with blockchain-based tamper-evident logging to detect anomalies indicative of theft or illegal connections. Sensor data is continuously read, anomalies flagged, and operator alerts generated — creating an immutable audit trail that improves distribution accountability and reduces revenue losses at utility scale.</div>
+      <div class="proj-tech"><span class="tech-pill">Arduino</span><span class="tech-pill">Blockchain</span><span class="tech-pill">Python</span><span class="tech-pill">SQL</span><span class="tech-pill">Current Sensors</span><span class="tech-pill">Analytics</span></div>
       <div class="proj-links">
         <a href="https://github.com/sikolia-2/Blockchain-Metering-System" target="_blank" rel="noopener" class="proj-link pl-gh">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -437,9 +549,9 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
       <span class="proj-badge b-done">Completed</span>
       <div class="proj-ico">♻️</div>
       <div class="proj-title">Smart Waste Management System</div>
-      <div class="proj-prob">↳ Inefficient waste collection routing in urban areas</div>
-      <div class="proj-desc">IoT-inspired system optimising waste collection through dynamic routing, fill-level monitoring, automated scheduling, and resource allocation. Contributed hardware design and embedded firmware for sensor nodes.</div>
-      <div class="proj-tech"><span class="tech-pill">IoT</span><span class="tech-pill">Firmware</span><span class="tech-pill">Python</span><span class="tech-pill">SQL</span><span class="tech-pill">Sensors</span></div>
+      <div class="proj-prob">↳ Urban waste collection is inefficient — trucks run fixed routes regardless of bin fill levels</div>
+      <div class="proj-desc">IoT-based waste management system with ultrasonic fill-level sensors embedded in bins, transmitting data to a central platform for dynamic route optimization, automated collection scheduling, and resource allocation. Led hardware design and embedded firmware development for sensor nodes, reducing unnecessary collection trips and improving urban sanitation efficiency.</div>
+      <div class="proj-tech"><span class="tech-pill">IoT</span><span class="tech-pill">Embedded Firmware</span><span class="tech-pill">Ultrasonic Sensors</span><span class="tech-pill">Python</span><span class="tech-pill">SQL</span><span class="tech-pill">Route Optimization</span></div>
       <div class="proj-links">
         <a href="https://github.com/sikolia-2/Smart-Waste-Management-System-Project" target="_blank" rel="noopener" class="proj-link pl-gh">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -454,8 +566,8 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
       <span class="proj-badge b-done">Completed</span>
       <div class="proj-ico">🏥</div>
       <div class="proj-title">Health Insurance Database System</div>
-      <div class="proj-prob">↳ Poor record accuracy and fragmented financial tracking</div>
-      <div class="proj-desc">Structured relational database improving record management accuracy, financial transaction tracking, and reporting for a health insurance use case. Includes ER modelling, query optimisation, and dashboard-ready reporting.</div>
+      <div class="proj-prob">↳ Fragmented records and manual tracking cause billing errors in insurance management</div>
+      <div class="proj-desc">Designed and implemented a normalized relational database for a health insurance management use case, replacing fragmented manual records with structured, query-optimized data storage. Covers member registration, policy management, claims processing, and financial transaction tracking — with ERD documentation and dashboard-ready reporting views that reduce administrative overhead and billing errors.</div>
       <div class="proj-tech"><span class="tech-pill">MySQL</span><span class="tech-pill">SQL</span><span class="tech-pill">Database Design</span><span class="tech-pill">ERD</span><span class="tech-pill">Reporting</span></div>
           <div class="proj-links">
         <a href="https://github.com/sikolia-2/shif_ms" target="_blank" rel="noopener" class="proj-link pl-gh">
@@ -470,9 +582,34 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
       <span class="proj-badge b-done">Completed</span>
       <div class="proj-ico">🏗️</div>
       <div class="proj-title">Lift Control &amp; Motor Direction System</div>
-      <div class="proj-prob">↳ Unreliable manual control of electromechanical systems</div>
-      <div class="proj-desc">Relay and microcontroller-based automation for lift control and motor direction management. Implemented limit switch integration, overload protection logic, and directional control sequencing for industrial installations.</div>
+      <div class="proj-prob">↳ Manual lift control introduces safety risks and operational unreliability</div>
+      <div class="proj-desc">Designed and built relay and microcontroller-based automation for lift control and bi-directional motor management across electromechanical installations. Implemented limit switch integration for end-of-travel detection, overload protection logic, and directional control sequencing — eliminating manual switching errors and improving operational safety. Circuits designed and simulated in Proteus before physical implementation.</div>
       <div class="proj-tech"><span class="tech-pill">Arduino</span><span class="tech-pill">Relay Circuits</span><span class="tech-pill">Proteus</span><span class="tech-pill">Embedded C</span><span class="tech-pill">KiCad</span></div>
+
+    <!-- 07 SipSwift -->
+    <div class="proj-card">
+      <div class="proj-num">07</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🍔</div>
+      <div class="proj-title">SipSwift — Food Delivery App</div>
+      <div class="proj-prob">↳ Food delivery platforms lack a seamless rider-to-customer real-time experience</div>
+      <div class="proj-desc">Full-featured cross-platform food delivery app built in Flutter with a Dart backend server. Covers the complete delivery lifecycle — onboarding, OTP authentication, menu browsing, cart, M-Pesa checkout, live order tracking with rider location sharing, order history, and a dedicated rider dashboard. Features Google Sign-In, shimmer loading states, smooth page transitions, and a local dev backend running on Dart with HTTP routing. Structured across 9 screens and 3 service layers (auth, backend, session).</div>
+      <div class="proj-tech"><span class="tech-pill">Flutter</span><span class="tech-pill">Dart</span><span class="tech-pill">Google Sign-In</span><span class="tech-pill">OTP Auth</span><span class="tech-pill">M-Pesa</span><span class="tech-pill">REST API</span><span class="tech-pill">Live Tracking</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/Food-Delivery-App" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+
+    <!-- 08 NexaFinance -->
+    <div class="proj-card">
+      <div class="proj-num">08</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🔓</div>
+      <div class="proj-title">NexaFinance Breach Simulation</div>
+      <div class="proj-prob">↳ Fintech systems processing KES 2B daily need rigorous security validation</div>
+      <div class="proj-desc">End-to-end authorized penetration test and incident response simulation across 7 sessions. Conducted full network reconnaissance with Nmap across a Dockerized lab environment, exploited vsftpd 2.3.4 CVE backdoor and Samba usermap vulnerability via Metasploit to gain root shell access, cracked /etc/shadow credentials with John the Ripper, and reconstructed the attack chain forensically using Wireshark PCAP analysis. Ingested attack logs into Splunk SIEM to build real-time detection alerts and a SOC dashboard. Completed full remediation — disabling vulnerable services, implementing UFW firewall rules, deploying Fail2ban, and proving closure by re-running exploits to confirmed failure. Project component of EEC 2505 Cryptography & Network Security at JKUAT.</div>
+      <div class="proj-tech"><span class="tech-pill">Kali Linux</span><span class="tech-pill">Metasploit</span><span class="tech-pill">Nmap</span><span class="tech-pill">Wireshark</span><span class="tech-pill">Splunk</span><span class="tech-pill">Docker</span><span class="tech-pill">John the Ripper</span><span class="tech-pill">UFW</span><span class="tech-pill">Fail2ban</span></div>
     </div>
 
   </div>
@@ -522,6 +659,7 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
         <div class="cat-items">
           <div class="tool-chip"><span class="chip-icon">☁️</span><span class="chip-name">Microsoft Azure</span></div>
           <div class="tool-chip"><span class="chip-icon">🌥️</span><span class="chip-name">Google Cloud</span></div>
+          <div class="tool-chip"><span class="chip-icon">🐉</span><span class="chip-name">Kali Linux</span></div>
           <div class="tool-chip"><span class="chip-icon">🤖</span><span class="chip-name">Prompt Engineering</span></div>
           <div class="tool-chip"><span class="chip-icon">📊</span><span class="chip-name">Data Analytics</span></div>
         </div>
@@ -536,6 +674,8 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
         <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Cybersecurity Essentials</div><div class="cert-iss">Atingi · EU4Digital Facility</div></div></div>
         <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Digital Safety and Security</div><div class="cert-iss">Atingi · ID: 6172425350FS</div></div></div>
         <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Introduction to AI and Emerging Technologies</div><div class="cert-iss">Atingi · ID: 4428566081FS</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Endpoint Security</div><div class="cert-iss">Cisco Networking Academy · ID: bc8caecd-2808-4f0e-b6f9-3d5073f0a2a4 · May 2026</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">AI for Sustainable Development: Strategies &amp; Models of Tech-Based Innovations</div><div class="cert-iss">ITACA Project / Università Cattolica del Sacro Cuore · JKUAT · April 2026</div></div></div>
       </div>
     </div>
   </div>
