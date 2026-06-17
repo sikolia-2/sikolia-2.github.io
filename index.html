@@ -326,7 +326,60 @@ nav{transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s}
   nav,#thankyou,footer{display:none}
   body{background:white;color:black}
 }
+
+/* ── HIRE ME BANNER ── */
+#hire-banner{
+  background:linear-gradient(135deg,rgba(0,229,255,0.1),rgba(123,97,255,0.1));
+  border-top:1px solid rgba(0,229,255,0.2);
+  border-bottom:1px solid rgba(0,229,255,0.2);
+  padding:1.1rem 5%;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+  position:relative;z-index:10;
+}
+.hire-dot{width:9px;height:9px;border-radius:50%;background:var(--accent3);animation:blink 2s infinite;flex-shrink:0}
+.hire-text{font-family:'DM Mono',monospace;font-size:0.78rem;color:var(--text);letter-spacing:0.05em;display:flex;align-items:center;gap:0.75rem}
+.hire-text strong{color:var(--accent3)}
+.hire-actions{display:flex;gap:0.75rem;flex-wrap:wrap}
+.hire-btn{font-family:'DM Mono',monospace;font-size:0.72rem;padding:0.5rem 1.2rem;border-radius:4px;text-decoration:none;letter-spacing:0.06em;transition:all 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.hire-btn-primary{background:var(--accent);color:var(--bg);border:none}
+.hire-btn-primary:hover{opacity:0.88;transform:translateY(-1px)}
+.hire-btn-ghost{background:transparent;color:var(--text);border:1px solid var(--border)}
+.hire-btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+@media(max-width:640px){#hire-banner{flex-direction:column;text-align:center;align-items:center}}
+
+/* ── BLOG SECTION ── */
+#blog{padding:7rem 5%;background:var(--surface)}
+.blog-wrap{max-width:1200px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-top:0}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;text-decoration:none}
+.blog-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,0.25);box-shadow:0 14px 40px rgba(0,0,0,0.4)}
+.blog-tag{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.2rem 0.55rem;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase;display:inline-block;margin-bottom:1rem}
+.tag-security{background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2)}
+.tag-iot{background:rgba(0,229,255,0.08);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}
+.tag-dev{background:rgba(123,97,255,0.1);color:var(--accent2);border:1px solid rgba(123,97,255,0.2)}
+.tag-ai{background:rgba(0,255,157,0.08);color:var(--accent3);border:1px solid rgba(0,255,157,0.2)}
+.blog-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:0.6rem;line-height:1.35}
+.blog-excerpt{font-size:0.86rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:1.1rem}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted)}
+.blog-read{color:var(--accent);font-family:'DM Mono',monospace;font-size:0.68rem;display:inline-flex;align-items:center;gap:0.3rem;text-decoration:none;transition:gap 0.2s}
+.blog-card:hover .blog-read{gap:0.5rem}
+.blog-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem;border:1px dashed rgba(0,229,255,0.2);border-radius:12px;background:rgba(0,229,255,0.02)}
+.blog-coming-icon{font-size:2rem;margin-bottom:0.75rem}
+.blog-coming-text{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.06em}
+
+/* analytics placeholder */
+.ga-note{display:none}
 </style>
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+  // Replace G-XXXXXXXXXX with your real Measurement ID from analytics.google.com
+</script>
 </head>
 <body>
 
@@ -340,6 +393,7 @@ nav{transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s}
     <li><a href="#projects">Projects</a></li>
     <li><a href="#tools">Tools</a></li>
     <li><a href="#contact">Contact</a></li>
+    <li><a href="#blog">Blog</a></li>
   </ul>
   <div class="nav-right">
     <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
@@ -352,6 +406,22 @@ nav{transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s}
   </div>
   <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
+
+
+<!-- ═══ HIRE ME BANNER ═══ -->
+<div id="hire-banner">
+  <div class="hire-text">
+    <div class="hire-dot"></div>
+    <span><strong>Available for Opportunities</strong> — Open to graduate roles, freelance projects &amp; collaborations in Security Engineering, Backend Development &amp; Embedded IoT</span>
+  </div>
+  <div class="hire-actions">
+    <a href="mailto:sikoliafedley01@gmail.com" class="hire-btn hire-btn-primary">
+      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+      Hire Me
+    </a>
+    <a href="https://drive.google.com/file/d/12VRWCE0sSdMiGQFNYqfT0g3KTrNVK9fM/view?usp=sharing" target="_blank" rel="noopener" class="hire-btn hire-btn-ghost">Download CV</a>
+  </div>
+</div>
 
 <!-- ═══ HERO ═══ -->
 <section id="home">
@@ -748,6 +818,63 @@ nav{transition:background 0.3s,border-color 0.3s,backdrop-filter 0.3s}
         <div id="form-msg" style="font-family:'DM Mono',monospace;font-size:0.73rem;color:var(--accent3);display:none;margin-top:0.5rem">✓ Message sent. I'll be in touch soon.</div>
         <div id="form-err" style="font-family:'DM Mono',monospace;font-size:0.73rem;color:#ff6b6b;display:none;margin-top:0.5rem">✗ Something went wrong. Please email me directly.</div>
       </form>
+    </div>
+  </div>
+</section>
+
+
+<div class="divider"></div>
+
+<!-- ═══ BLOG ═══ -->
+<section id="blog">
+  <div class="blog-wrap">
+    <div class="section-tag">// 06 — Blog</div>
+    <h2 class="section-heading">Writing &amp; Insights</h2>
+    <p class="section-sub">Technical articles on security engineering, embedded systems, and things I've built.</p>
+
+    <div class="blog-grid">
+
+      <!-- Article 1 — NexaFinance (published on Medium) -->
+      <a class="blog-card" href="https://medium.com/@sikolia_2" target="_blank" rel="noopener">
+        <span class="blog-tag tag-security">Cybersecurity</span>
+        <div class="blog-title">I Hacked a Simulated Fintech Company Processing KES 2 Billion Daily</div>
+        <div class="blog-excerpt">A complete walkthrough of an authorized end-to-end penetration test — from Nmap reconnaissance and Metasploit exploitation to Wireshark PCAP forensics, Splunk SIEM detection, and full system hardening. Root shell in under 60 seconds.</div>
+        <div class="blog-meta">
+          <span>June 2026 · 12 min read</span>
+          <span class="blog-read">Read on Medium →</span>
+        </div>
+      </a>
+
+      <!-- Article 2 — Door Lock (coming soon) -->
+      <div class="blog-card" style="cursor:default">
+        <span class="blog-tag tag-iot">Embedded IoT</span>
+        <div class="blog-title">Building a Pay-Per-Use Door Lock System with M-Pesa &amp; ESP32</div>
+        <div class="blog-excerpt">How I built a production-ready IoT access control system from scratch — ESP32 firmware, M-Pesa Daraja API STK push integration, Django REST backend with 8 endpoints, SIM800L GSM backup, and tamper detection. KES 2/min billing, four access modes.</div>
+        <div class="blog-meta">
+          <span>Coming July 2026 · ~15 min read</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--accent2)">Draft in progress</span>
+        </div>
+      </div>
+
+      <!-- Article 3 — SecureNet (coming soon) -->
+      <div class="blog-card" style="cursor:default">
+        <span class="blog-tag tag-security">Security Engineering</span>
+        <div class="blog-title">Building an Ethical Phishing Simulation Platform from Zero</div>
+        <div class="blog-excerpt">How SecureNet AI works under the hood — JWT role-based access control, SHA-256 credential masking, real-time analytics with 140+ tracked events, and why we never store real passwords. Stack: Node.js, Express, MongoDB, React.</div>
+        <div class="blog-meta">
+          <span>Coming August 2026 · ~10 min read</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--accent2)">Draft in progress</span>
+        </div>
+      </div>
+
+      <!-- Coming soon card -->
+      <div class="blog-coming">
+        <div class="blog-coming-icon">✍️</div>
+        <div class="blog-coming-text">More articles coming monthly</div>
+        <div style="margin-top:0.75rem;font-size:0.8rem;color:var(--muted)">Follow on Medium for updates</div>
+        <a href="https://medium.com/@sikolia_2" target="_blank" rel="noopener" style="margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--accent);text-decoration:none">@sikolia_2 →</a>
+      </div>
+
     </div>
   </div>
 </section>
