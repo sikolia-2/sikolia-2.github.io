@@ -104,6 +104,7 @@ section{padding:7rem 5%}
 .hero-photo-frame{width:260px;height:320px;position:relative}
 .hero-photo-frame::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--accent),var(--accent2),transparent);border-radius:12px;z-index:0}
 .hero-photo-inner{position:relative;z-index:1;width:100%;height:100%;border-radius:11px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center}
+.hero-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .hero-badge{position:absolute;bottom:-16px;right:-16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.55rem;z-index:2}
 .badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent3);animation:blink 2s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
@@ -243,7 +244,8 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
 /* ── RESPONSIVE ── */
 @media(max-width:920px){
   .hero-inner{grid-template-columns:1fr}
-  .hero-photo-wrap{display:none}
+  .hero-photo-wrap{display:flex;justify-content:center;margin-top:1rem}
+  .hero-photo-frame{width:220px;height:270px}
   .about-grid{grid-template-columns:1fr;gap:3rem}
   .contact-grid{grid-template-columns:1fr;gap:3rem}
   .proj-grid{grid-template-columns:repeat(2,1fr)}
@@ -338,7 +340,7 @@ a:focus-visible,button:focus-visible{
     </div>
     <div class="hero-photo-wrap">
       <div class="hero-photo-frame">
-        <div class="hero-photo-inner"><img src="images/profile.jpg" class="hero-badge" alt="Fedley Sikolia in graduation attire">
+        <div class="hero-photo-inner"><img src="images/profile.jpg" alt="Fedley Sikolia in graduation attire">
           <span class="badge-dot"></span>
           <span class="badge-txt">Open to Work</span>
         </div>
