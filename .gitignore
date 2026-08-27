@@ -1,0 +1,28 @@
+# System Files
+.849C9593-D756-4E56-8D6E-42412F2A707B
+desktop.ini
+.DS_Store
+.git/
+
+# Shortcuts
+*.lnk
+
+# Microsoft Office
+*.docx
+*.doc
+*.xlsx
+
+# Directories
+Desktop/
+Documents/
+Pictures/
+Personal Vault.lnk
+Microsoft Copilot Chat Files/
+New folder/
+
+# Local files
+sketch 2.png
+FEDLEY.webp
+
+# OS
+Thumbs.db

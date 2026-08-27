@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fedley Sikolia — Electronic & Computer Engineer. Building intelligent systems bridging hardware and software: embedded IoT, full-stack development, cybersecurity, and data engineering.">
+<meta name="keywords" content="embedded systems, IoT, full-stack developer, cybersecurity, ESP32, Django, Node.js, Flutter, Nairobi">
+<meta name="author" content="Fedley Sikolia">
+<meta name="theme-color" content="#0a0c10">
+
+<!-- Open Graph Tags for Social Sharing -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://fedley-sikolia.com">
+<meta property="og:title" content="Fedley Sikolia — Electronic & Computer Engineer">
+<meta property="og:description" content="Building intelligent engineering solutions from hardware to full-stack platforms. 8+ production projects, embedded IoT, cybersecurity, and AI.">
+<meta property="og:image" content="https://fedley-sikolia.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+
+<!-- Twitter Card Tags -->
+<meta property="twitter:card" content="summary_large_image">
+<meta property="twitter:url" content="https://fedley-sikolia.com">
+<meta property="twitter:title" content="Fedley Sikolia — Electronic & Computer Engineer">
+<meta property="twitter:description" content="Building intelligent engineering solutions from hardware to full-stack platforms.">
+<meta property="twitter:image" content="https://fedley-sikolia.com/og-image.jpg">
+
+<title>Fedley Sikolia — Electronic & Computer Engineer | Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="canonical" href="https://fedley-sikolia.com">
+<link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='75' font-size='75' fill='%2300e5ff'>F</text></svg>">
+
+<style>
+:root {
+  --bg: #0a0c10;
+  --surface: #111318;
+  --surface2: #181c24;
+  --border: rgba(255,255,255,0.08);
+  --accent: #00e5ff;
+  --accent2: #7b61ff;
+  --accent3: #00ff9d;
+  --text: #e8eaf0;
+  --muted: #6b7280; 
+  --card: rgba(255,255,255,0.03);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:16px;line-height:1.7;overflow-x:hidden}
+::-webkit-scrollbar{width:4px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--accent);border-radius:2px}
+
+/* grid bg */
+body::before{content:'';position:fixed;inset:0;z-index:-1;
+  background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);
+  background-size:48px 48px;pointer-events:none}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;
+  padding:1.2rem 5%;background:rgba(10,12,16,0.92);backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);transition:border-color 0.3s}
+.nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:0.05em}
+.nav-logo span{color:var(--accent)}
+.nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-links a{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--accent)}
+.nav-right{display:flex;align-items:center;gap:0.6rem}
+.nav-icon{width:32px;height:32px;border-radius:6px;border:1px solid var(--border);background:transparent;display:flex;align-items:center;justify-content:center;color:var(--muted);text-decoration:none;transition:border-color 0.2s,color 0.2s}
+.nav-icon:hover{border-color:var(--accent);color:var(--accent)}
+.nav-cta{font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.45rem 1rem;border:1px solid var(--accent);color:var(--accent);background:transparent;border-radius:4px;text-decoration:none;letter-spacing:0.08em;transition:background 0.2s,color 0.2s;white-space:nowrap}
+.nav-cta:hover{background:var(--accent);color:var(--bg)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
+
+/* ── BUTTONS ── */
+.btn-primary{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;padding:0.8rem 1.8rem;background:var(--accent);color:var(--bg);border:none;border-radius:4px;cursor:pointer;text-decoration:none;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,229,255,0.3)}
+.btn-ghost{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;padding:0.8rem 1.8rem;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:4px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── SECTION ── */
+section{padding:7rem 5%}
+.section-tag{font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem}
+.section-heading{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;color:var(--text);margin-bottom:1.25rem}
+.section-sub{color:var(--muted);font-size:0.95rem;max-width:560px;margin-bottom:2.5rem}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent);margin:0 5%}
+
+/* ── HERO ── */
+#home{min-height:100vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden}
+.hero-glow{position:absolute;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,0.1) 0%,transparent 70%);top:-80px;right:-80px;pointer-events:none;animation:gp 6s ease-in-out infinite}
+.hero-glow2{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(123,97,255,0.09) 0%,transparent 70%);bottom:40px;left:-60px;pointer-events:none;animation:gp 8s ease-in-out infinite reverse}
+@keyframes gp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.55;transform:scale(1.08)}}
+.hero-inner{display:grid;grid-template-columns:1fr auto;gap:3.5rem;align-items:center;width:100%;max-width:1200px;margin:0 auto}
+.hero-eyebrow{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem}
+.hero-eyebrow::before{content:'';width:28px;height:1px;background:var(--accent)}
+.hero-name{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(2.8rem,6vw,5rem);line-height:1;color:var(--text);margin-bottom:0.5rem}
+.hero-name .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-title{font-family:'DM Mono',monospace;font-size:clamp(0.8rem,1.4vw,0.98rem);color:var(--muted);margin-bottom:1.5rem;letter-spacing:0.04em;min-height:1.4em}
+.hero-desc{font-size:0.97rem;color:var(--muted);max-width:500px;line-height:1.85;margin-bottom:2.25rem}
+.hero-actions{display:flex;gap:0.85rem;flex-wrap:wrap;margin-bottom:3rem}
+.hero-stats{display:flex;gap:2.5rem}
+.stat-num{font-family:'Syne',sans-serif;font-size:1.7rem;font-weight:800;color:var(--accent)}
+.stat-label{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase}
+
+/* photo */
+.hero-photo-wrap{flex-shrink:0}
+.hero-photo-frame{width:260px;height:320px;position:relative}
+.hero-photo-frame::before{content:'';position:absolute;inset:-2px;background:linear-gradient(135deg,var(--accent),var(--accent2),transparent);border-radius:12px;z-index:0}
+.hero-photo-inner{position:relative;z-index:1;width:100%;height:100%;border-radius:11px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center}
+.hero-badge{position:absolute;bottom:-16px;right:-16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.55rem;z-index:2}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent3);animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.badge-txt{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted)}
+
+/* ── ABOUT ── */
+#about{background:var(--surface)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;max-width:1200px;margin:0 auto}
+.about-text p{color:var(--muted);margin-bottom:1.2rem;line-height:1.85;font-size:0.95rem}
+.highlights{display:flex;flex-direction:column;gap:0.85rem;margin-top:1.75rem}
+.hl-item{display:flex;align-items:flex-start;gap:0.9rem;padding:0.9rem 1.1rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:6px;transition:transform 0.2s}
+.hl-item:hover{transform:translateX(4px)}
+.hl-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px}
+.hl-label{font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;margin-bottom:0.15rem}
+.hl-desc{font-size:0.8rem;color:var(--muted)}
+.timeline{position:relative;padding-left:1.75rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,var(--accent),var(--accent2),transparent)}
+.tl-item{padding-bottom:2rem;position:relative}
+.tl-item::before{content:'';position:absolute;left:-1.95rem;top:5px;width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent)}
+.tl-date{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--accent);letter-spacing:0.1em;margin-bottom:0.25rem}
+.tl-role{font-family:'Syne',sans-serif;font-weight:700;font-size:0.97rem;margin-bottom:0.15rem}
+.tl-company{font-size:0.82rem;color:var(--muted);margin-bottom:0.4rem}
+.tl-desc{font-size:0.83rem;color:var(--muted);line-height:1.7}
+
+/* ── EXPERTISE ── */
+.exp-wrap{max-width:1200px;margin:0 auto}
+.exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.75rem;position:relative;overflow:hidden;transition:transform 0.25s,border-color 0.25s}
+.exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.25s}
+.exp-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,0.2)}
+.exp-card:hover::before{opacity:1}
+.exp-icon{width:46px;height:46px;border-radius:10px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem}
+.exp-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.65rem}
+.exp-desc{font-size:0.85rem;color:var(--muted);line-height:1.75}
+.exp-tags{display:flex;flex-wrap:wrap;gap:0.35rem;margin-top:1.1rem}
+.exp-tag{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.22rem 0.55rem;background:rgba(0,229,255,0.05);border:1px solid rgba(0,229,255,0.14);color:var(--accent);border-radius:3px}
+
+/* ── PROJECTS ── */
+#projects{background:var(--surface)}
+.proj-header{max-width:1200px;margin:0 auto 2.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}
+.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;max-width:1200px;margin:0 auto}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;flex-direction:column;position:relative;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;min-height:320px}
+.proj-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,0.4);border-color:rgba(0,229,255,0.2)}
+.proj-num{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);margin-bottom:0.85rem;letter-spacing:0.1em}
+.proj-badge{position:absolute;top:1.4rem;right:1.4rem;font-family:'DM Mono',monospace;font-size:0.58rem;padding:0.22rem 0.55rem;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase}
+.b-done{background:rgba(123,97,255,0.1);color:var(--accent2);border:1px solid rgba(123,97,255,0.2)}
+.b-dev{background:rgba(0,229,255,0.08);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}
+.b-active{background:rgba(0,255,157,0.08);color:var(--accent3);border:1px solid rgba(0,255,157,0.2)}
+.proj-ico{font-size:1.6rem;margin-bottom:0.85rem}
+.proj-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.5rem}
+.proj-prob{font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--accent);margin-bottom:0.65rem;letter-spacing:0.05em}
+.proj-desc{font-size:0.85rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:1.1rem}
+.proj-tech{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.9rem}
+.tech-pill{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.18rem 0.5rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted);border-radius:3px}
+.proj-links{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:auto;padding-top:0.85rem}
+.proj-link{font-family:'DM Mono',monospace;font-size:0.65rem;padding:0.3rem 0.7rem;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;transition:all 0.2s}
+.pl-gh{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted)}
+.pl-gh:hover{border-color:var(--accent);color:var(--accent)}
+.pl-gh2{background:rgba(123,97,255,0.07);border:1px solid rgba(123,97,255,0.2);color:var(--accent2)}
+.pl-gh2:hover{background:rgba(123,97,255,0.14)}
+
+/* ── TOOLS ── */
+.tools-wrap{max-width:1200px;margin:0 auto}
+.tool-cats{display:flex;flex-direction:column;gap:2.25rem}
+.cat-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;margin-bottom:0.85rem;padding-bottom:0.45rem;border-bottom:1px solid var(--border)}
+.cat-items{display:flex;flex-wrap:wrap;gap:0.65rem}
+.tool-chip{display:flex;align-items:center;gap:0.55rem;padding:0.55rem 0.95rem;background:var(--card);border:1px solid var(--border);border-radius:6px;transition:border-color 0.2s,transform 0.2s;cursor:default}
+.tool-chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.chip-icon{font-size:1rem}
+.chip-name{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text)}
+.certs-wrap{margin-top:4rem}
+.cert-list{display:flex;flex-wrap:wrap;gap:0.85rem}
+.cert-card{padding:0.9rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;gap:0.65rem;transition:border-color 0.2s}
+.cert-card:hover{border-color:rgba(0,229,255,0.2)}
+.cert-ico{font-size:1.1rem}
+.cert-name{font-size:0.83rem;font-weight:500}
+.cert-iss{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted)}
+
+/* ── CONTACT ── */
+#contact{background:var(--surface)}
+.contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
+.channels{display:flex;flex-direction:column;gap:0.85rem;margin-top:1.75rem}
+.channel{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.2s,transform 0.2s}
+.channel:hover{border-color:var(--accent);transform:translateX(4px)}
+.ch-icon{width:40px;height:40px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.14);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.ch-label{font-family:'DM Mono',monospace;font-size:0.62rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.15rem}
+.ch-val{font-size:0.88rem;color:var(--text)}
+.avail-box{padding:1.75rem;background:linear-gradient(135deg,rgba(0,229,255,0.05),rgba(123,97,255,0.05));border:1px solid rgba(0,229,255,0.14);border-radius:12px;margin-top:1.75rem}
+.avail-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.4rem}
+.avail-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent3);margin-right:0.45rem;animation:blink 2s infinite;vertical-align:middle}
+.avail-desc{font-size:0.85rem;color:var(--muted);line-height:1.7}
+.contact-form{display:flex;flex-direction:column;gap:0.9rem}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.fg{display:flex;flex-direction:column;gap:0.35rem}
+.fg label{font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--muted);letter-spacing:0.08em}
+.fg input,.fg textarea,.fg select{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:0.75rem 0.95rem;color:var(--text);font-family:'DM Sans',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s}
+.fg input:focus,.fg textarea:focus,.fg select:focus{border-color:var(--accent)}
+.fg textarea{resize:vertical;min-height:120px}
+.fg select option{background:var(--surface2)}
+
+/* ── THANK YOU ── */
+#thankyou{min-height:55vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 5%;position:relative;overflow:hidden}
+#thankyou::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(0,229,255,0.05) 0%,transparent 70%);pointer-events:none}
+.ty-inner{position:relative;z-index:1;max-width:620px}
+.ty-icon{width:68px;height:68px;border-radius:50%;background:rgba(0,229,255,0.09);border:1px solid rgba(0,229,255,0.25);display:flex;align-items:center;justify-content:center;font-size:1.65rem;margin:0 auto 1.75rem}
+.ty-heading{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4.5vw,3.2rem);font-weight:800;line-height:1.1;margin-bottom:1.25rem}
+.ty-heading .hl{background:linear-gradient(135deg,var(--accent),var(--accent2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.ty-desc{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:2.25rem}
+.ty-links{display:flex;gap:0.85rem;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
+.foot-copy{font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--muted)}
+.foot-back{font-family:'DM Mono',monospace;font-size:0.67rem;color:var(--accent);text-decoration:none}
+.foot-back:hover{opacity:0.7}
+
+/* ── BLOG SECTION ── */
+#blog{padding:7rem 5%;background:var(--surface)}
+.blog-wrap{max-width:1200px;margin:0 auto}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;margin-top:0}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;text-decoration:none}
+.blog-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,0.25);box-shadow:0 14px 40px rgba(0,0,0,0.4)}
+.blog-tag{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.2rem 0.55rem;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase;display:inline-block;margin-bottom:1rem}
+.tag-security{background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2)}
+.tag-iot{background:rgba(0,229,255,0.08);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}
+.tag-dev{background:rgba(123,97,255,0.1);color:var(--accent2);border:1px solid rgba(123,97,255,0.2)}
+.tag-ai{background:rgba(0,255,157,0.08);color:var(--accent3);border:1px solid rgba(0,255,157,0.2)}
+.blog-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:0.6rem;line-height:1.35}
+.blog-excerpt{font-size:0.86rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:1.1rem}
+.blog-meta{display:flex;align-items:center;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted)}
+.blog-read{color:var(--accent);font-family:'DM Mono',monospace;font-size:0.68rem;display:inline-flex;align-items:center;gap:0.3rem;text-decoration:none;transition:gap 0.2s}
+.blog-card:hover .blog-read{gap:0.5rem}
+.blog-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem;border:1px dashed rgba(0,229,255,0.2);border-radius:12px;background:rgba(0,229,255,0.02)}
+.blog-coming-icon{font-size:2rem;margin-bottom:0.75rem}
+.blog-coming-text{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.06em}
+
+/* ── RESPONSIVE ── */
+@media(max-width:920px){
+  .hero-inner{grid-template-columns:1fr}
+  .hero-photo-wrap{display:none}
+  .about-grid{grid-template-columns:1fr;gap:3rem}
+  .contact-grid{grid-template-columns:1fr;gap:3rem}
+  .proj-grid{grid-template-columns:repeat(2,1fr)}
+  .form-row{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  nav{padding:1rem 4%}
+  .nav-links{display:none}
+  .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--bg);padding:1.2rem 4%;border-bottom:1px solid var(--border);gap:1rem}
+  .hamburger{display:flex}
+  section{padding:5rem 4%}
+  .hero-stats{gap:1.75rem}
+  .nav-right .nav-cta{display:none}
+  .exp-grid{grid-template-columns:1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .cert-card{width:100%}
+}
+@media(max-width:480px){
+  .cat-items{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
+  .hero-stats{gap:1.2rem}
+  .stat-num{font-size:1.4rem}
+  .hero-badge{display:none}
+  footer{flex-direction:column;text-align:center;gap:0.5rem}
+  .timeline{padding-left:1.25rem}
+  .tl-item::before{left:-1.4rem}
+}
+
+/* Enhanced Accessibility */
+a:focus-visible,button:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:3px;
+  border-radius:4px;
+}
+::selection{background:rgba(0,229,255,0.25);color:var(--text)}
+
+/* Print Styles */
+@media print{
+  nav,#thankyou,footer{display:none}
+  body{background:white;color:black}
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">FS<span>.</span></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#expertise">Expertise</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#blog">Blog</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+    </a>
+    <a href="https://www.linkedin.com/in/fedley-sikolia" target="_blank" rel="noopener" class="nav-icon" title="LinkedIn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+    </a>
+    <a href="https://drive.google.com/file/d/12VRWCE0sSdMiGQFNYqfT0g3KTrNVK9fM/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Download CV</a>
+  </div>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="home">
+  <div class="hero-glow"></div>
+  <div class="hero-glow2"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-eyebrow">Electronic & Computer Engineer · Nairobi, Kenya</div>
+      <h1 class="hero-name"><span class="hl">Fedley</span><br>Sikolia</h1>
+      <p class="hero-title" id="typingTitle">Embedded Systems · Full-Stack Development · IoT · Software Engineering</p>
+      <p class="hero-desc">I build intelligent engineering solutions that bridge hardware and software—from real-time monitoring systems and embedded automation to full-stack platforms and data-driven applications.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View My Projects</a>
+        <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="btn-ghost">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          GitHub
+        </a>
+        <a href="#contact" class="btn-ghost">Let's Connect</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">8+</div><div class="stat-label">Projects</div></div>
+        <div><div class="stat-num">3</div><div class="stat-label">Internships</div></div>
+        <div><div class="stat-num">9+</div><div class="stat-label">Certs</div></div>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-frame">
+        <div class="hero-photo-inner"><img src="images/profile.webp"hero-badge">
+          <span class="badge-dot"></span>
+          <span class="badge-txt">Open to Work</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <div class="section-tag">// 01 — About Me</div>
+      <h2 class="section-heading">I Build Systems That Work in the Real World</h2>
+      <p>I am an Electronic and Computer Engineer who builds complete systems—from hardware to software and everything in between. My work spans embedded firmware on ESP32 microcontrollers, payment-integrated IoT devices, Django and Node.js backends, Flutter mobile apps, and relational database design.</p>
+      <p>I have built systems that process real M-Pesa transactions, track live delivery riders, simulate phishing attacks for security awareness training, and monitor electricity consumption anomalies in real time. I approach every engineering challenge as a systems thinker—understanding how hardware, software, data, and people connect to create solutions that actually solve problems.</p>
+      <p>I hold a BSc. in Electronic and Computer Engineering—Second Class Honours (Upper Division) from JKUAT, awarded July 2026. Through attachments at Kenya Power and Lighting Company, Fedha Electrics, and JHUB Africa, I have worked across electrical infrastructure, electronics design, and agile software delivery.</p>
+      <div class="highlights">
+        <div class="hl-item"><div class="hl-icon">🔌</div><div><div class="hl-label">Hardware to Software</div><div class="hl-desc">From PCB design and ESP32 firmware to REST APIs and mobile apps</div></div></div>
+        <div class="hl-item"><div class="hl-icon">🛠</div><div><div class="hl-label">Real-World Builder</div><div class="hl-desc">8 production-grade projects solving real problems for real users</div></div></div>
+        <div class="hl-item"><div class="hl-icon">🌍</div><div><div class="hl-label">Africa-First Engineering</div><div class="hl-desc">M-Pesa integrations, IoT for local infrastructure, Nairobi-based solutions</div></div></div>
+      </div>
+    </div>
+    <div>
+      <div class="section-tag" style="margin-bottom:1.5rem">// Experience Timeline</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-date">Jun 2025 – Aug 2025</div>
+          <div class="tl-role">Software Development Attaché</div>
+          <div class="tl-company">JHUB Africa · Nairobi, Kenya</div>
+          <div class="tl-desc">Built SecureNet AI—a cybersecurity platform with phishing simulation, detection analytics, and user training. Developed Django backend modules, user authentication, and interactive dashboards using Git and agile workflows.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">May 2024 – Aug 2024</div>
+          <div class="tl-role">Technical Assistant Attaché</div>
+          <div class="tl-company">Fedha Electrics · Nairobi, Kenya</div>
+          <div class="tl-desc">Designed responsive business websites and developed circuit schematics and PCB layouts using KiCad and Proteus. Conducted client-facing technical consultations.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Jun 2023 – Aug 2023</div>
+          <div class="tl-role">Operations & Maintenance Attaché</div>
+          <div class="tl-company">Kenya Power & Lighting Company (KPLC)</div>
+          <div class="tl-desc">Supported maintenance of LV/HV electrical distribution infrastructure, field diagnostics, safety compliance checks, and system performance evaluations.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-date">Sept 2021 – July 2026</div>
+          <div class="tl-role">BSc. Electronic & Computer Engineering — <span style="color:var(--accent)">Second Class Honours (Upper Division)</span></div>
+          <div class="tl-company">JKUAT · Nairobi, Kenya</div>
+          <div class="tl-desc">Awarded July 2026. Covered embedded systems, digital electronics, cryptography & network security, control theory, and software engineering. Active member of the Society of Engineering Students (SES).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ EXPERTISE ═══ -->
+<section id="expertise">
+  <div class="exp-wrap">
+    <div class="section-tag">// 02 — Engineering Expertise</div>
+    <h2 class="section-heading">What I Build With</h2>
+    <p class="section-sub">Technical capabilities developed across academic study, professional attachments, and real project delivery.</p>
+    <div class="exp-grid">
+      <div class="exp-card">
+        <div class="exp-icon">🔌</div>
+        <div class="exp-title">Embedded Systems & IoT</div>
+        <div class="exp-desc">Microcontroller-based system design from schematic to working prototype. Built production IoT devices integrating M-Pesa payments, GSM backup, solenoid control, and live web dashboards. Comfortable from breadboard to PCB layout to firmware deployment.</div>
+        <div class="exp-tags"><span class="exp-tag">ESP32</span><span class="exp-tag">Arduino</span><span class="exp-tag">KiCad</span><span class="exp-tag">Proteus</span><span class="exp-tag">Sensors</span><span class="exp-tag">PCB Design</span><span class="exp-tag">Embedded C</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">💻</div>
+        <div class="exp-title">Full-Stack Development</div>
+        <div class="exp-desc">End-to-end web and mobile development across Django, Node.js, React, and Flutter. Built platforms ranging from cybersecurity dashboards and food delivery apps to payment-integrated access control systems. Strong on backend architecture, APIs, and database design.</div>
+        <div class="exp-tags"><span class="exp-tag">Python</span><span class="exp-tag">Django</span><span class="exp-tag">Node.js</span><span class="exp-tag">React</span><span class="exp-tag">Flutter</span><span class="exp-tag">REST APIs</span><span class="exp-tag">MongoDB</span><span class="exp-tag">MySQL</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">🛡️</div>
+        <div class="exp-title">Security Engineering</div>
+        <div class="exp-desc">Practical experience in penetration testing, SIEM detection, and system hardening. Completed an authorized end-to-end pentest—Nmap reconnaissance, Metasploit exploitation, Wireshark forensics, and Splunk alert engineering. Also built a full phishing simulation platform for security awareness training.</div>
+        <div class="exp-tags"><span class="exp-tag">Nmap</span><span class="exp-tag">Metasploit</span><span class="exp-tag">Wireshark</span><span class="exp-tag">Splunk</span><span class="exp-tag">Kali Linux</span><span class="exp-tag">CVE Analysis</span><span class="exp-tag">UFW</span></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">🤖</div>
+        <div class="exp-title">Data & AI Systems</div>
+        <div class="exp-desc">Relational database design, SQL query optimization, and analytics dashboard development. Applied AI tools and prompt engineering in production workflows. Certified in LLM application development (NVIDIA), machine learning data preparation, and AI for sustainable development.</div>
+        <div class="exp-tags"><span class="exp-tag">MySQL</span><span class="exp-tag">SQL</span><span class="exp-tag">Database Design</span><span class="exp-tag">Prompt Engineering</span><span class="exp-tag">Azure</span><span class="exp-tag">Google Cloud</span><span class="exp-tag">LLM Apps</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ PROJECTS ═══ -->
+<section id="projects">
+  <div class="proj-header">
+    <div>
+      <div class="section-tag">// 03 — Selected Projects</div>
+      <h2 class="section-heading">Engineering Work</h2>
+    </div>
+    <p style="color:var(--muted);font-size:0.85rem;max-width:260px;text-align:right">Real systems built end-to-end—hardware, software, data, and everything in between.</p>
+  </div>
+  <div class="proj-grid">
+
+    <!-- 01 SecureNet -->
+    <div class="proj-card">
+      <div class="proj-num">01</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🛡️</div>
+      <div class="proj-title">SecureNet AI Cybersecurity Platform</div>
+      <div class="proj-prob">↳ Enterprises need structured tools to measure and train phishing awareness</div>
+      <div class="proj-desc">Full-stack ethical phishing simulation platform for security awareness training. Features Gmail-clone phishing landing page, JWT-secured admin dashboard with role-based access (superadmin/admin/analyst), real-time analytics across 142+ simulated events, CSV export, and campaign lifecycle management. Credentials never stored—only one-way SHA-256 hash with immediate awareness message. Built with Node.js, Express, MongoDB, and React.</div>
+      <div class="proj-tech"><span class="tech-pill">Node.js</span><span class="tech-pill">Express</span><span class="tech-pill">MongoDB</span><span class="tech-pill">React</span><span class="tech-pill">JWT</span><span class="tech-pill">bcrypt</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/securanet-ai-website" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Website
+        </a>
+        <a href="https://github.com/sikolia-2/SecureNet-phishing" target="_blank" rel="noopener" class="proj-link pl-gh2">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Simulation
+        </a>
+      </div>
+    </div>
+
+    <!-- 02 Door Lock -->
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <span class="proj-badge b-dev">In Development</span>
+      <div class="proj-ico">🔐</div>
+      <div class="proj-title">Automated Door Lock with M-Pesa</div>
+      <div class="proj-prob">↳ Pay-per-use storage units need cashless, self-service access control</div>
+      <div class="proj-desc">Production-ready access control system for shared self-service storage. Customers enter Safaricom number on 4×4 keypad—ESP32 triggers M-Pesa STK push via Daraja API, opens solenoid lock on confirmation, bills KES 2/minute. Features 4 access modes (keypad+M-Pesa, SMS override, admin unlock, physical button), SIM800L GSM backup, tamper detection with escalation, Django REST backend with 8 endpoints, and live dashboard. All credentials in ESP32 NVS—never hardcoded.</div>
+      <div class="proj-tech"><span class="tech-pill">ESP32</span><span class="tech-pill">Django</span><span class="tech-pill">Daraja API</span><span class="tech-pill">SIM800L</span><span class="tech-pill">Embedded C</span><span class="tech-pill">REST API</span><span class="tech-pill">PostgreSQL</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/door-lock-system" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- 03 Electricity -->
+    <div class="proj-card">
+      <div class="proj-num">03</div>
+      <span class="proj-badge b-active">Active</span>
+      <div class="proj-ico">⚡</div>
+      <div class="proj-title">Blockchain Electricity Metering & Theft Detection</div>
+      <div class="proj-prob">↳ Power utilities lose revenue to undetected tampering and illegal connections</div>
+      <div class="proj-desc">Real-time electricity monitoring system combining embedded hardware with blockchain-based tamper-evident logging. Detects anomalies indicative of theft or illegal connections. Sensor data continuously read, anomalies flagged, and operator alerts generated—creating immutable audit trail that improves accountability and reduces revenue losses at utility scale.</div>
+      <div class="proj-tech"><span class="tech-pill">Arduino</span><span class="tech-pill">Blockchain</span><span class="tech-pill">Python</span><span class="tech-pill">SQL</span><span class="tech-pill">Current Sensors</span><span class="tech-pill">Analytics</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/Blockchain-Metering-System" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- 04 Waste -->
+    <div class="proj-card">
+      <div class="proj-num">04</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">♻️</div>
+      <div class="proj-title">Smart Waste Management System</div>
+      <div class="proj-prob">↳ Urban waste collection is inefficient—trucks run fixed routes regardless of bin fill levels</div>
+      <div class="proj-desc">IoT-based waste management with ultrasonic fill-level sensors in bins, transmitting to central platform for dynamic route optimization, automated scheduling, and resource allocation. Led hardware design and embedded firmware development, reducing unnecessary collection trips and improving urban sanitation efficiency.</div>
+      <div class="proj-tech"><span class="tech-pill">IoT</span><span class="tech-pill">Embedded Firmware</span><span class="tech-pill">Ultrasonic Sensors</span><span class="tech-pill">Python</span><span class="tech-pill">SQL</span><span class="tech-pill">Route Optimization</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/Smart-Waste-Management-System-Project" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- 05 Health Insurance -->
+    <div class="proj-card">
+      <div class="proj-num">05</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🏥</div>
+      <div class="proj-title">Health Insurance Database System</div>
+      <div class="proj-prob">↳ Fragmented records and manual tracking cause billing errors in insurance</div>
+      <div class="proj-desc">Designed and implemented normalized relational database for health insurance management, replacing fragmented records with structured, query-optimized storage. Covers member registration, policy management, claims processing, and financial tracking—with ERD documentation and dashboard-ready reporting views reducing administrative overhead and billing errors.</div>
+      <div class="proj-tech"><span class="tech-pill">MySQL</span><span class="tech-pill">SQL</span><span class="tech-pill">Database Design</span><span class="tech-pill">ERD</span><span class="tech-pill">Reporting</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/shif_ms" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- 06 Lift -->
+    <div class="proj-card">
+      <div class="proj-num">06</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🏗️</div>
+      <div class="proj-title">Lift Control & Motor Direction System</div>
+      <div class="proj-prob">↳ Manual lift control introduces safety risks and operational unreliability</div>
+      <div class="proj-desc">Designed and built relay and microcontroller-based automation for lift control and bi-directional motor management. Implemented limit switch integration for end-of-travel detection, overload protection, and directional control sequencing—eliminating manual switching errors and improving safety. Circuits designed and simulated in Proteus before physical implementation.</div>
+      <div class="proj-tech"><span class="tech-pill">Arduino</span><span class="tech-pill">Relay Circuits</span><span class="tech-pill">Proteus</span><span class="tech-pill">Embedded C</span><span class="tech-pill">KiCad</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- 07 SipSwift -->
+    <div class="proj-card">
+      <div class="proj-num">07</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🍔</div>
+      <div class="proj-title">SipSwift — Food Delivery App</div>
+      <div class="proj-prob">↳ Food delivery platforms lack seamless rider-to-customer real-time experience</div>
+      <div class="proj-desc">Full-featured cross-platform food delivery app in Flutter with Dart backend. Covers complete delivery lifecycle—onboarding, OTP auth, menu browsing, cart, M-Pesa checkout, live tracking with rider location, order history, and rider dashboard. Features Google Sign-In, shimmer loading, smooth transitions, and local Dart backend with HTTP routing across 9 screens and 3 service layers.</div>
+      <div class="proj-tech"><span class="tech-pill">Flutter</span><span class="tech-pill">Dart</span><span class="tech-pill">Google Sign-In</span><span class="tech-pill">OTP Auth</span><span class="tech-pill">M-Pesa</span><span class="tech-pill">REST API</span><span class="tech-pill">Live Tracking</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/Food-Delivery-App" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          View on GitHub
+        </a>
+      </div>
+    </div>
+
+    <!-- 08 NexaFinance -->
+    <div class="proj-card">
+      <div class="proj-num">08</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🔓</div>
+      <div class="proj-title">NexaFinance Breach Simulation</div>
+      <div class="proj-prob">↳ Fintech systems processing KES 2B daily need rigorous security validation</div>
+      <div class="proj-desc">End-to-end authorized penetration test and incident response across 7 sessions. Full network reconnaissance with Nmap, exploited vsftpd 2.3.4 CVE and Samba vulnerabilities via Metasploit for root access, cracked /etc/shadow with John the Ripper, forensic analysis via Wireshark. Built Splunk SIEM dashboard with real-time alerts. Full remediation: disabled vulnerable services, UFW firewall, Fail2ban deployment, re-tested for confirmed closure. Cryptography & Network Security project (JKUAT).</div>
+      <div class="proj-tech"><span class="tech-pill">Kali Linux</span><span class="tech-pill">Metasploit</span><span class="tech-pill">Nmap</span><span class="tech-pill">Wireshark</span><span class="tech-pill">Splunk</span><span class="tech-pill">Docker</span><span class="tech-pill">John the Ripper</span><span class="tech-pill">UFW</span></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ TOOLS ═══ -->
+<section id="tools">
+  <div class="tools-wrap">
+    <div class="section-tag">// 04 — Technologies & Tools</div>
+    <h2 class="section-heading">Technical Stack</h2>
+    <p class="section-sub">Tools used across embedded, software, and data engineering projects.</p>
+    <div class="tool-cats">
+      <div>
+        <div class="cat-label">Languages</div>
+        <div class="cat-items">
+          <div class="tool-chip"><span class="chip-icon">🐍</span><span class="chip-name">Python</span></div>
+          <div class="tool-chip"><span class="chip-icon">📜</span><span class="chip-name">JavaScript</span></div>
+          <div class="tool-chip"><span class="chip-icon">🗃️</span><span class="chip-name">SQL</span></div>
+          <div class="tool-chip"><span class="chip-icon">🌐</span><span class="chip-name">HTML & CSS</span></div>
+          <div class="tool-chip"><span class="chip-icon">⚙️</span><span class="chip-name">Embedded C</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="cat-label">Frameworks & Platforms</div>
+        <div class="cat-items">
+          <div class="tool-chip"><span class="chip-icon">🦄</span><span class="chip-name">Django</span></div>
+          <div class="tool-chip"><span class="chip-icon">⚛️</span><span class="chip-name">React</span></div>
+          <div class="tool-chip"><span class="chip-icon">📱</span><span class="chip-name">Flutter</span></div>
+          <div class="tool-chip"><span class="chip-icon">🔗</span><span class="chip-name">Node.js</span></div>
+          <div class="tool-chip"><span class="chip-icon">🐬</span><span class="chip-name">MySQL</span></div>
+          <div class="tool-chip"><span class="chip-icon">🔀</span><span class="chip-name">Git & GitHub</span></div>
+          <div class="tool-chip"><span class="chip-icon">📋</span><span class="chip-name">Trello</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="cat-label">Electronics & Hardware</div>
+        <div class="cat-items">
+          <div class="tool-chip"><span class="chip-icon">🔧</span><span class="chip-name">Arduino</span></div>
+          <div class="tool-chip"><span class="chip-icon">🖥️</span><span class="chip-name">KiCad</span></div>
+          <div class="tool-chip"><span class="chip-icon">🔬</span><span class="chip-name">Proteus</span></div>
+          <div class="tool-chip"><span class="chip-icon">📡</span><span class="chip-name">Sensors & Actuators</span></div>
+          <div class="tool-chip"><span class="chip-icon">⚡</span><span class="chip-name">PCB Layout</span></div>
+        </div>
+      </div>
+      <div>
+        <div class="cat-label">Cloud & Security</div>
+        <div class="cat-items">
+          <div class="tool-chip"><span class="chip-icon">☁️</span><span class="chip-name">Microsoft Azure</span></div>
+          <div class="tool-chip"><span class="chip-icon">🌥️</span><span class="chip-name">Google Cloud</span></div>
+          <div class="tool-chip"><span class="chip-icon">🐉</span><span class="chip-name">Kali Linux</span></div>
+          <div class="tool-chip"><span class="chip-icon">🤖</span><span class="chip-name">Prompt Engineering</span></div>
+          <div class="tool-chip"><span class="chip-icon">📊</span><span class="chip-name">Data Analytics</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="certs-wrap">
+      <div class="section-tag" style="margin-bottom:1.25rem">// Certifications</div>
+      <div class="cert-list">
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Building LLM Apps with Prompt Engineering</div><div class="cert-iss">NVIDIA</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Virtual Assistant Program</div><div class="cert-iss">ALX Africa</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">ML: Data Preparation & Feature Engineering</div><div class="cert-iss">Atingi</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Cybersecurity Essentials</div><div class="cert-iss">Atingi · EU4Digital</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Digital Safety and Security</div><div class="cert-iss">Atingi</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">AI and Emerging Technologies</div><div class="cert-iss">Atingi</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">Endpoint Security</div><div class="cert-iss">Cisco Networking Academy</div></div></div>
+        <div class="cert-card"><span class="cert-ico">🏅</span><div><div class="cert-name">AI for Sustainable Development</div><div class="cert-iss">ITACA/Università Cattolica</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact">
+  <div class="contact-grid">
+    <div>
+      <div class="section-tag">// 05 — Contact</div>
+      <h2 class="section-heading">Let's Build Something Together</h2>
+      <p style="color:var(--muted);font-size:0.92rem;line-height:1.8">Whether you have a project, an internship opportunity, or want to discuss engineering—I'd love to hear from you.</p>
+      <div class="channels">
+        <a href="mailto:sikoliafedley01@gmail.com" class="channel">
+          <div class="ch-icon">✉️</div>
+          <div><div class="ch-label">Email</div><div class="ch-val">sikoliafedley01@gmail.com</div></div>
+        </a>
+        <a href="tel:+254702263035" class="channel">
+          <div class="ch-icon">📞</div>
+          <div><div class="ch-label">Phone</div><div class="ch-val">+254 702 263 035</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/fedley-sikolia" target="_blank" rel="noopener" class="channel">
+          <div class="ch-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="color:var(--muted)"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </div>
+          <div><div class="ch-label">LinkedIn</div><div class="ch-val">linkedin.com/in/fedley-sikolia</div></div>
+        </a>
+        <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="channel">
+          <div class="ch-icon">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="currentColor" style="color:var(--muted)"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          </div>
+          <div><div class="ch-label">GitHub</div><div class="ch-val">github.com/sikolia-2</div></div>
+        </a>
+        <a href="https://drive.google.com/file/d/12VRWCE0sSdMiGQFNYqfT0g3KTrNVK9fM/view?usp=sharing" target="_blank" rel="noopener" class="channel">
+          <div class="ch-icon">📄</div>
+          <div><div class="ch-label">Curriculum Vitae</div><div class="ch-val">Download CV (Google Drive)</div></div>
+        </a>
+        <div class="channel" style="cursor:default">
+          <div class="ch-icon">📍</div>
+          <div><div class="ch-label">Location</div><div class="ch-val">Nairobi, Kenya</div></div>
+        </div>
+      </div>
+      <div class="avail-box" style="margin-top:1.5rem">
+        <div class="avail-title"><span class="avail-dot"></span>Available for Opportunities</div>
+        <p class="avail-desc">Open to full-time engineering roles, freelance projects, research collaborations, and graduate programs in Embedded IoT, Full-Stack Development, and Software Engineering.</p>
+      </div>
+    </div>
+    <div>
+      <div class="section-tag" style="margin-bottom:1.25rem">// Send a Message</div>
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/mvzvvody" method="POST">
+        <div class="form-row">
+          <div class="fg"><label for="firstName">First Name</label><input type="text" id="firstName" name="firstName" placeholder="John" required></div>
+          <div class="fg"><label for="lastName">Last Name</label><input type="text" id="lastName" name="lastName" placeholder="Doe" required></div>
+        </div>
+        <div class="fg"><label for="email">Email Address</label><input type="email" id="email" name="email" placeholder="john@company.com" required></div>
+        <div class="fg">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject">
+            <option>Project Collaboration</option>
+            <option>Internship / Employment</option>
+            <option>Freelance Enquiry</option>
+            <option>Technical Consultation</option>
+            <option>General Enquiry</option>
+          </select>
+        </div>
+        <div class="fg"><label for="message">Message</label><textarea id="message" name="message" placeholder="Tell me about your project or opportunity..." required></textarea></div>
+        <button type="submit" class="btn-primary" style="align-self:flex-start" id="submitBtn">Send Message →</button>
+        <div id="form-msg" style="font-family:'DM Mono',monospace;font-size:0.73rem;color:var(--accent3);display:none;margin-top:0.5rem">✓ Message sent successfully. I'll be in touch soon.</div>
+        <div id="form-err" style="font-family:'DM Mono',monospace;font-size:0.73rem;color:#ff6b6b;display:none;margin-top:0.5rem">✗ Something went wrong. Please try again or email me directly.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ BLOG ═══ -->
+<section id="blog">
+  <div class="blog-wrap">
+    <div class="section-tag">// 06 — Blog</div>
+    <h2 class="section-heading">Writing & Insights</h2>
+    <p class="section-sub">Technical articles on security engineering, embedded systems, and things I've built.</p>
+
+    <div class="blog-grid">
+
+      <!-- Article 1 — NexaFinance -->
+      <a class="blog-card" href="https://medium.com/@sikolia_2" target="_blank" rel="noopener">
+        <span class="blog-tag tag-security">Cybersecurity</span>
+        <div class="blog-title">I Hacked a Simulated Fintech Company Processing KES 2 Billion Daily</div>
+        <div class="blog-excerpt">Complete walkthrough of an authorized end-to-end penetration test—from Nmap reconnaissance and Metasploit exploitation to Wireshark PCAP forensics, Splunk SIEM detection, and full system hardening. Root shell in under 60 seconds.</div>
+        <div class="blog-meta">
+          <span>June 2026 · 12 min read</span>
+          <span class="blog-read">Read on Medium →</span>
+        </div>
+      </a>
+      
+      <!-- Article 2 — SecureNet AI -->
+      <a class="blog-card" href="https://medium.com/@sikolia_2/architecting-securenet-ai-a-full-stack-approach-to-smarter-phishing-defense-eb4b45991c0d" target="_blank" rel="noopener">
+        <span class="blog-tag tag-security">Security Engineering</span>
+        <div class="blog-title">Architecting SecureNet AI: A Full-Stack Approach to Phishing Defense</div>
+        <div class="blog-excerpt">Deep dive into the architecture behind SecureNet AI—covering React, Express.js, MongoDB, JWT-based RBAC, phishing simulation workflows, analytics pipelines, and roadmap for AI-powered threat detection.</div>
+        <div class="blog-meta">
+          <span>June 2026 · 14 min read</span>
+          <span class="blog-read">Read on Medium →</span>
+        </div>
+      </a>
+
+      <!-- Article 3 — Door Lock -->
+      <div class="blog-card" style="cursor:default">
+        <span class="blog-tag tag-iot">Embedded IoT</span>
+        <div class="blog-title">Building a Pay-Per-Use Door Lock with M-Pesa & ESP32</div>
+        <div class="blog-excerpt">How I built a production-ready IoT access control system—ESP32 firmware, M-Pesa Daraja API STK push, Django REST backend with 8 endpoints, SIM800L GSM backup, tamper detection, and KES 2/min billing with four access modes.</div>
+        <div class="blog-meta">
+          <span>Coming July 2026 · ~15 min read</span>
+          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--accent2)">Draft in progress</span>
+        </div>
+      </div>
+
+      <!-- Coming soon card -->
+      <div class="blog-coming">
+        <div class="blog-coming-icon">✍️</div>
+        <div class="blog-coming-text">More articles coming monthly</div>
+        <div style="margin-top:0.75rem;font-size:0.8rem;color:var(--muted)">Follow on Medium for updates</div>
+        <a href="https://medium.com/@sikolia_2" target="_blank" rel="noopener" style="margin-top:1rem;font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--accent);text-decoration:none">@sikolia_2 →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══ THANK YOU ═══ -->
+<section id="thankyou">
+  <div class="ty-inner">
+    <div class="ty-icon">🙏</div>
+    <h2 class="ty-heading">Thank You for<br><span class="hl">Visiting</span></h2>
+    <p class="ty-desc">I appreciate you exploring my portfolio. Engineering is about solving real problems and creating lasting impact—I'm always eager to collaborate with those who share this vision. Let's connect and explore what we can build together.</p>
+    <div class="ty-links">
+      <a href="#home" class="btn-primary">Back to Top ↑</a>
+      <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="btn-ghost">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        GitHub
+      </a>
+      <button class="btn-ghost" onclick="window.location.href='mailto:sikoliafedley01@gmail.com'">Get in Touch</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-copy">© 2026 Fedley Sikolia · Electronic & Computer Engineer · Nairobi, Kenya</div>
+  <a href="#home" class="foot-back">↑ Back to top</a>
+</footer>
+
+<!-- JSON-LD Schema for SEO -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Fedley Sikolia",
+  "jobTitle": "Electronic & Computer Engineer",
+  "url": "https://fedley-sikolia.com",
+  "email": "sikoliafedley01@gmail.com",
+  "telephone": "+254-702-263-035",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Nairobi",
+    "addressCountry": "Kenya"
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/fedley-sikolia",
+    "https://github.com/sikolia-2",
+    "https://medium.com/@sikolia_2"
+  ],
+  "image": "https://fedley-sikolia.com/profile.jpg",
+  "description": "Building intelligent engineering solutions bridging hardware and software. Embedded IoT, full-stack development, cybersecurity, and AI.",
+  "knowsAbout": [
+    "Embedded Systems",
+    "IoT",
+    "Full-Stack Development",
+    "Cybersecurity",
+    "Database Design",
+    "Electronics"
+  ]
+}
+</script>
+
+<script>
+function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
+
+// Typing effect
+const el=document.getElementById('typingTitle');
+if(el){
+  const txt=el.textContent;el.textContent='';let i=0;
+  setTimeout(()=>{
+    const iv=setInterval(()=>{el.textContent+=txt[i];i++;if(i>=txt.length)clearInterval(iv)},30);
+  },600);
+}
+
+// Nav border on scroll
+window.addEventListener('scroll',()=>{
+  document.getElementById('navbar').style.borderBottomColor=
+    window.scrollY>50?'rgba(0,229,255,0.12)':'rgba(255,255,255,0.08)';
+});
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+  });
+});
+
+// Formspree form submission
+const contactForm = document.getElementById('contactForm');
+if(contactForm){
+  contactForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('form-msg');
+    const err = document.getElementById('form-err');
+    btn.textContent = 'Sending...';
+    btn.style.opacity = '0.7';
+    btn.disabled = true;
+    msg.style.display = 'none';
+    err.style.display = 'none';
+    try {
+      const response = await fetch('https://formspree.io/f/mvzvvody', {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(response.ok){
+        msg.style.display = 'block';
+        contactForm.reset();
+      } else {
+        err.style.display = 'block';
+      }
+    } catch(e){
+      err.style.display = 'block';
+    }
+    btn.textContent = 'Send Message →';
+    btn.style.opacity = '1';
+    btn.disabled = false;
+  });
+}
+</script>
+</body>
+</html>
