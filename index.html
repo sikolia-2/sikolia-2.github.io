@@ -49,7 +49,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 
 /* grid bg */
 body::before{content:'';position:fixed;inset:0;z-index:-1;
-  background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(0,229,255,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.018) 1px,transparent 1px);
   background-size:48px 48px;pointer-events:none}
 
 /* ── NAV ── */
@@ -59,6 +59,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:1.1rem;color:var(--text);text-decoration:none;letter-spacing:0.05em}
 .nav-logo span{color:var(--accent)}
 .nav-links{display:flex;gap:1.8rem;list-style:none}
+.nav-mobile-cv{display:none}
 .nav-links a{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);text-decoration:none;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
 .nav-links a:hover{color:var(--accent)}
 .nav-right{display:flex;align-items:center;gap:0.6rem}
@@ -70,13 +71,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px}
 
 /* ── BUTTONS ── */
-.btn-primary{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;padding:0.8rem 1.8rem;background:var(--accent);color:var(--bg);border:none;border-radius:4px;cursor:pointer;text-decoration:none;font-weight:500;transition:transform 0.2s,box-shadow 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,229,255,0.3)}
+.btn-primary{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;padding:0.8rem 1.8rem;background:var(--accent);color:var(--bg);border:none;border-radius:4px;cursor:pointer;text-decoration:none;font-weight:500;transition:background-color 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
+.btn-primary:hover{background-color:#4bebff}
 .btn-ghost{font-family:'DM Mono',monospace;font-size:0.78rem;letter-spacing:0.08em;padding:0.8rem 1.8rem;background:transparent;color:var(--text);border:1px solid var(--border);border-radius:4px;cursor:pointer;text-decoration:none;transition:border-color 0.2s,color 0.2s;display:inline-flex;align-items:center;gap:0.4rem}
 .btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
 
 /* ── SECTION ── */
-section{padding:7rem 5%}
+section{padding:7rem 5%;scroll-margin-top:5.5rem}
 .section-tag{font-family:'DM Mono',monospace;font-size:0.74rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--accent);margin-bottom:0.75rem}
 .section-heading{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;line-height:1.1;color:var(--text);margin-bottom:1.25rem}
 .section-sub{color:var(--muted);font-size:1rem;max-width:560px;margin-bottom:2.5rem}
@@ -84,9 +85,8 @@ section{padding:7rem 5%}
 
 /* ── HERO ── */
 #home{min-height:100vh;display:flex;align-items:center;padding-top:5rem;position:relative;overflow:hidden}
-.hero-glow{position:absolute;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,0.1) 0%,transparent 70%);top:-80px;right:-80px;pointer-events:none;animation:gp 6s ease-in-out infinite}
-.hero-glow2{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(123,97,255,0.09) 0%,transparent 70%);bottom:40px;left:-60px;pointer-events:none;animation:gp 8s ease-in-out infinite reverse}
-@keyframes gp{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.55;transform:scale(1.08)}}
+.hero-glow{position:absolute;width:550px;height:550px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,0.065) 0%,transparent 70%);top:-80px;right:-80px;pointer-events:none}
+.hero-glow2{position:absolute;width:380px;height:380px;border-radius:50%;background:radial-gradient(circle,rgba(123,97,255,0.045) 0%,transparent 70%);bottom:40px;left:-60px;pointer-events:none}
 .hero-inner{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3.5rem;align-items:center;width:100%;max-width:1200px;margin:0 auto}
 .hero-inner>div{min-width:0}
 .hero-eyebrow{font-family:'DM Mono',monospace;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--accent);margin-bottom:1.25rem;display:flex;align-items:center;gap:0.75rem}
@@ -107,8 +107,7 @@ section{padding:7rem 5%}
 .hero-photo-inner{position:relative;z-index:1;width:100%;height:100%;border-radius:11px;overflow:hidden;background:var(--surface2);display:flex;align-items:center;justify-content:center}
 .hero-photo-inner img{width:100%;height:100%;object-fit:cover;object-position:center;display:block}
 .hero-badge{position:absolute;bottom:-16px;right:-16px;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;display:flex;align-items:center;gap:0.55rem;z-index:2}
-.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent3);animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
+.badge-dot{width:8px;height:8px;border-radius:50%;background:var(--accent3)}
 .badge-txt{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted)}
 
 /* ── ABOUT ── */
@@ -116,8 +115,8 @@ section{padding:7rem 5%}
 .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start;max-width:1200px;margin:0 auto}
 .about-text p{color:var(--muted);margin-bottom:1.2rem;line-height:1.85;font-size:0.98rem}
 .highlights{display:flex;flex-direction:column;gap:0.85rem;margin-top:1.75rem}
-.hl-item{display:flex;align-items:flex-start;gap:0.9rem;padding:0.9rem 1.1rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:6px;transition:transform 0.2s}
-.hl-item:hover{transform:translateX(4px)}
+.hl-item{display:flex;align-items:flex-start;gap:0.9rem;padding:0.9rem 1.1rem;background:var(--card);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:6px;transition:border-color 0.2s}
+.hl-item:hover{border-color:rgba(0,229,255,0.28)}
 .hl-icon{font-size:1.1rem;flex-shrink:0;margin-top:2px}
 .hl-label{font-family:'Syne',sans-serif;font-weight:700;font-size:0.88rem;margin-bottom:0.15rem}
 .hl-desc{font-size:0.88rem;color:var(--muted)}
@@ -133,9 +132,9 @@ section{padding:7rem 5%}
 /* ── EXPERTISE ── */
 .exp-wrap{max-width:1200px;margin:0 auto}
 .exp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.4rem}
-.exp-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.75rem;position:relative;overflow:hidden;transition:transform 0.25s,border-color 0.25s}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:1.75rem;position:relative;overflow:hidden;transition:border-color 0.2s}
 .exp-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2));opacity:0;transition:opacity 0.25s}
-.exp-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,0.2)}
+.exp-card:hover{border-color:rgba(0,229,255,0.28)}
 .exp-card:hover::before{opacity:1}
 .exp-icon{width:46px;height:46px;border-radius:10px;background:rgba(0,229,255,0.08);border:1px solid rgba(0,229,255,0.15);display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:1.1rem}
 .exp-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.65rem}
@@ -146,22 +145,22 @@ section{padding:7rem 5%}
 /* ── PROJECTS ── */
 #projects{background:var(--surface)}
 .proj-header{max-width:1200px;margin:0 auto 2.5rem;display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:1rem}
-.proj-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;max-width:1200px;margin:0 auto}
-.proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;flex-direction:column;position:relative;transition:transform 0.25s,box-shadow 0.25s,border-color 0.25s;min-height:320px}
-.proj-card:hover{transform:translateY(-5px);box-shadow:0 14px 40px rgba(0,0,0,0.4);border-color:rgba(0,229,255,0.2)}
+.proj-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem;max-width:1200px;margin:0 auto}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.6rem;display:flex;flex-direction:column;position:relative;transition:border-color 0.2s;min-height:320px}
+.proj-card:hover{border-color:rgba(0,229,255,0.28)}
 .proj-num{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);margin-bottom:0.85rem;letter-spacing:0.1em}
-.proj-badge{position:absolute;top:1.4rem;right:1.4rem;font-family:'DM Mono',monospace;font-size:0.64rem;padding:0.22rem 0.55rem;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase}
+.proj-badge{position:absolute;top:1.4rem;right:1.4rem;font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.22rem 0.55rem;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase}
 .b-done{background:rgba(123,97,255,0.1);color:var(--accent2);border:1px solid rgba(123,97,255,0.2)}
 .b-dev{background:rgba(0,229,255,0.08);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}
 .b-active{background:rgba(0,255,157,0.08);color:var(--accent3);border:1px solid rgba(0,255,157,0.2)}
 .proj-ico{font-size:1.6rem;margin-bottom:0.85rem}
 .proj-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;margin-bottom:0.5rem}
-.proj-prob{font-family:'DM Mono',monospace;font-size:0.72rem;color:var(--accent);margin-bottom:0.65rem;letter-spacing:0.05em}
-.proj-desc{font-size:0.92rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:1.1rem}
+.proj-prob{font-family:'DM Sans',sans-serif;font-size:0.9rem;color:var(--muted);line-height:1.6;margin-bottom:0.65rem}
+.proj-desc{font-size:0.95rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:1.1rem}
 .proj-tech{display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.9rem}
-.tech-pill{font-family:'DM Mono',monospace;font-size:0.68rem;padding:0.18rem 0.5rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted);border-radius:3px}
+.tech-pill{font-family:'DM Mono',monospace;font-size:0.7rem;padding:0.18rem 0.5rem;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted);border-radius:3px}
 .proj-links{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:auto;padding-top:0.85rem}
-.proj-link{font-family:'DM Mono',monospace;font-size:0.65rem;padding:0.3rem 0.7rem;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;transition:all 0.2s}
+.proj-link{font-family:'DM Mono',monospace;font-size:0.72rem;padding:0.4rem 0.75rem;border-radius:4px;text-decoration:none;display:inline-flex;align-items:center;gap:0.3rem;transition:background-color 0.2s,border-color 0.2s,color 0.2s}
 .pl-gh{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:var(--muted)}
 .pl-gh:hover{border-color:var(--accent);color:var(--accent)}
 .pl-gh2{background:rgba(123,97,255,0.07);border:1px solid rgba(123,97,255,0.2);color:var(--accent2)}
@@ -172,8 +171,8 @@ section{padding:7rem 5%}
 .tool-cats{display:flex;flex-direction:column;gap:2.25rem}
 .cat-label{font-family:'DM Mono',monospace;font-size:0.68rem;letter-spacing:0.15em;color:var(--muted);text-transform:uppercase;margin-bottom:0.85rem;padding-bottom:0.45rem;border-bottom:1px solid var(--border)}
 .cat-items{display:flex;flex-wrap:wrap;gap:0.65rem}
-.tool-chip{display:flex;align-items:center;gap:0.55rem;padding:0.55rem 0.95rem;background:var(--card);border:1px solid var(--border);border-radius:6px;transition:border-color 0.2s,transform 0.2s;cursor:default}
-.tool-chip:hover{border-color:var(--accent);transform:translateY(-2px)}
+.tool-chip{display:flex;align-items:center;gap:0.55rem;padding:0.55rem 0.95rem;background:var(--card);border:1px solid var(--border);border-radius:6px;transition:border-color 0.2s;cursor:default}
+.tool-chip:hover{border-color:var(--accent)}
 .chip-icon{font-size:1rem}
 .chip-name{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--text)}
 .certs-wrap{margin-top:4rem}
@@ -181,21 +180,21 @@ section{padding:7rem 5%}
 .cert-card{padding:0.9rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;gap:0.65rem;transition:border-color 0.2s}
 .cert-card:hover{border-color:rgba(0,229,255,0.2)}
 .cert-ico{font-size:1.1rem}
-.cert-name{font-size:0.83rem;font-weight:500}
-.cert-iss{font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted)}
+.cert-name{font-size:0.9rem;font-weight:500}
+.cert-iss{font-family:'DM Mono',monospace;font-size:0.7rem;color:var(--muted)}
 
 /* ── CONTACT ── */
 #contact{background:var(--surface)}
 .contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4.5rem;align-items:start}
 .channels{display:flex;flex-direction:column;gap:0.85rem;margin-top:1.75rem}
-.channel{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.2s,transform 0.2s}
-.channel:hover{border-color:var(--accent);transform:translateX(4px)}
+.channel{display:flex;align-items:center;gap:1.1rem;padding:1.1rem 1.3rem;background:var(--card);border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:border-color 0.2s}
+.channel:hover{border-color:var(--accent)}
 .ch-icon{width:40px;height:40px;background:rgba(0,229,255,0.07);border:1px solid rgba(0,229,255,0.14);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
 .ch-label{font-family:'DM Mono',monospace;font-size:0.68rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-bottom:0.15rem}
 .ch-val{font-size:0.92rem;color:var(--text);overflow-wrap:anywhere}
 .avail-box{padding:1.75rem;background:linear-gradient(135deg,rgba(0,229,255,0.05),rgba(123,97,255,0.05));border:1px solid rgba(0,229,255,0.14);border-radius:12px;margin-top:1.75rem}
 .avail-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1rem;margin-bottom:0.4rem}
-.avail-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent3);margin-right:0.45rem;animation:blink 2s infinite;vertical-align:middle}
+.avail-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent3);margin-right:0.45rem;vertical-align:middle}
 .avail-desc{font-size:0.92rem;color:var(--muted);line-height:1.7}
 .contact-form{display:flex;flex-direction:column;gap:0.9rem}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
@@ -226,8 +225,8 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
 #blog{padding:7rem 5%;background:var(--surface)}
 .blog-wrap{max-width:1200px;margin:0 auto}
 .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));gap:1.5rem;margin-top:0}
-.blog-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;transition:transform 0.25s,border-color 0.25s,box-shadow 0.25s;text-decoration:none}
-.blog-card:hover{transform:translateY(-5px);border-color:rgba(0,229,255,0.25);box-shadow:0 14px 40px rgba(0,0,0,0.4)}
+.blog-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-direction:column;transition:border-color 0.2s;text-decoration:none}
+.blog-card:hover{border-color:rgba(0,229,255,0.28)}
 .blog-tag{font-family:'DM Mono',monospace;font-size:0.62rem;padding:0.2rem 0.55rem;border-radius:3px;letter-spacing:0.08em;text-transform:uppercase;display:inline-block;margin-bottom:1rem}
 .tag-security{background:rgba(239,68,68,0.1);color:#f87171;border:1px solid rgba(239,68,68,0.2)}
 .tag-iot{background:rgba(0,229,255,0.08);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}
@@ -236,8 +235,7 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
 .blog-title{font-family:'Syne',sans-serif;font-weight:700;font-size:1.05rem;color:var(--text);margin-bottom:0.6rem;line-height:1.35}
 .blog-excerpt{font-size:0.92rem;color:var(--muted);line-height:1.75;flex:1;margin-bottom:1.1rem}
 .blog-meta{display:flex;align-items:center;justify-content:space-between;font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--muted)}
-.blog-read{color:var(--accent);font-family:'DM Mono',monospace;font-size:0.68rem;display:inline-flex;align-items:center;gap:0.3rem;text-decoration:none;transition:gap 0.2s}
-.blog-card:hover .blog-read{gap:0.5rem}
+.blog-read{color:var(--accent);font-family:'DM Mono',monospace;font-size:0.72rem;display:inline-flex;align-items:center;gap:0.3rem;text-decoration:none}
 .blog-coming{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:2.5rem;border:1px dashed rgba(0,229,255,0.2);border-radius:12px;background:rgba(0,229,255,0.02)}
 .blog-coming-icon{font-size:2rem;margin-bottom:0.75rem}
 .blog-coming-text{font-family:'DM Mono',monospace;font-size:0.75rem;color:var(--muted);letter-spacing:0.06em}
@@ -248,6 +246,8 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
   .nav-links{display:none}
   .nav-links.open{display:flex;flex-direction:column;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:1rem 5%;border-bottom:1px solid var(--border);gap:0.85rem}
   .nav-links a{display:block;padding:0.25rem 0}
+  .nav-mobile-cv{display:list-item}
+  .nav-right .nav-cta{display:none}
   .hamburger{display:flex}
   .hero-inner{grid-template-columns:minmax(0,1fr);gap:2rem}
   .hero-photo-wrap{display:flex;justify-content:center;margin-top:1rem}
@@ -261,15 +261,15 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
   .nav-links.open{padding:1rem 4%}
   section{padding:4.25rem 4%}
   .hero-stats{gap:1.75rem}
-  .nav-right .nav-cta{display:none}
   .exp-grid{grid-template-columns:1fr}
   .proj-grid{grid-template-columns:1fr}
   .cert-card{width:100%}
   .form-row{grid-template-columns:1fr}
   .hero-title{font-size:0.9rem}
   .hero-desc{font-size:1rem}
-  .hero-actions{gap:0.65rem;margin-bottom:2.25rem}
-  .btn-primary,.btn-ghost{min-height:44px;padding:0.75rem 1.15rem}
+  .hero-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0.65rem;margin-bottom:2.25rem}
+  .hero-actions .btn-primary{grid-column:1/-1}
+  .hero-actions .btn-primary,.hero-actions .btn-ghost{min-height:44px;justify-content:center;padding:0.75rem 1rem}
 }
 @media(max-width:480px){
   .cat-items{display:grid;grid-template-columns:1fr 1fr;gap:0.5rem}
@@ -281,6 +281,11 @@ footer{padding:1.75rem 5%;border-top:1px solid var(--border);display:flex;align-
   footer{flex-direction:column;text-align:center;gap:0.5rem}
   .timeline{padding-left:1.25rem}
   .tl-item::before{left:-1.4rem}
+}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:0.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition-duration:0.01ms!important}
 }
 
 /* Enhanced Accessibility */
@@ -311,6 +316,7 @@ a:focus-visible,button:focus-visible{
     <li><a href="#tools">Tools</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="#blog">Blog</a></li>
+    <li class="nav-mobile-cv"><a href="https://drive.google.com/file/d/12VRWCE0sSdMiGQFNYqfT0g3KTrNVK9fM/view?usp=sharing" target="_blank" rel="noopener">Download CV</a></li>
   </ul>
   <div class="nav-right">
     <a href="https://github.com/sikolia-2" target="_blank" rel="noopener" class="nav-icon" title="GitHub">
@@ -321,7 +327,7 @@ a:focus-visible,button:focus-visible{
     </a>
     <a href="https://drive.google.com/file/d/12VRWCE0sSdMiGQFNYqfT0g3KTrNVK9fM/view?usp=sharing" target="_blank" rel="noopener" class="nav-cta">Download CV</a>
   </div>
-  <button class="hamburger" onclick="toggleNav()" aria-label="Menu"><span></span><span></span><span></span></button>
+  <button class="hamburger" onclick="toggleNav()" aria-label="Open menu" aria-controls="navLinks" aria-expanded="false"><span></span><span></span><span></span></button>
 </nav>
 
 <!-- ═══ HERO ═══ -->
@@ -343,9 +349,9 @@ a:focus-visible,button:focus-visible{
         <a href="#contact" class="btn-ghost">Let's Connect</a>
       </div>
       <div class="hero-stats">
-        <div><div class="stat-num">8+</div><div class="stat-label">Projects</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">Projects</div></div>
         <div><div class="stat-num">3</div><div class="stat-label">Internships</div></div>
-        <div><div class="stat-num">9+</div><div class="stat-label">Certs</div></div>
+        <div><div class="stat-num">8</div><div class="stat-label">Certifications</div></div>
       </div>
     </div>
     <div class="hero-photo-wrap">
@@ -460,31 +466,10 @@ a:focus-visible,button:focus-visible{
   </div>
   <div class="proj-grid">
 
-    <!-- 01 SecureNet -->
+    <!-- 01 Automated Door Lock -->
     <div class="proj-card">
       <div class="proj-num">01</div>
       <span class="proj-badge b-done">Completed</span>
-      <div class="proj-ico">🛡️</div>
-      <div class="proj-title">SecureNet AI Cybersecurity Platform</div>
-      <div class="proj-prob">↳ Enterprises need structured tools to measure and train phishing awareness</div>
-      <div class="proj-desc">Full-stack ethical phishing simulation platform for security awareness training. Features Gmail-clone phishing landing page, JWT-secured admin dashboard with role-based access (superadmin/admin/analyst), real-time analytics across 142+ simulated events, CSV export, and campaign lifecycle management. Credentials never stored—only one-way SHA-256 hash with immediate awareness message. Built with Node.js, Express, MongoDB, and React.</div>
-      <div class="proj-tech"><span class="tech-pill">Node.js</span><span class="tech-pill">Express</span><span class="tech-pill">MongoDB</span><span class="tech-pill">React</span><span class="tech-pill">JWT</span><span class="tech-pill">bcrypt</span></div>
-      <div class="proj-links">
-        <a href="https://github.com/sikolia-2/securanet-ai-website" target="_blank" rel="noopener" class="proj-link pl-gh">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          Website
-        </a>
-        <a href="https://github.com/sikolia-2/SecureNet-phishing" target="_blank" rel="noopener" class="proj-link pl-gh2">
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
-          Simulation
-        </a>
-      </div>
-    </div>
-
-    <!-- 02 Door Lock -->
-    <div class="proj-card">
-      <div class="proj-num">02</div>
-      <span class="proj-badge b-dev">In Development</span>
       <div class="proj-ico">🔐</div>
       <div class="proj-title">Automated Door Lock with M-Pesa</div>
       <div class="proj-prob">↳ Pay-per-use storage units need cashless, self-service access control</div>
@@ -495,6 +480,24 @@ a:focus-visible,button:focus-visible{
           <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
           View on GitHub
         </a>
+      </div>
+    </div>
+
+    <!-- 02 SecureNet -->
+    <div class="proj-card">
+      <div class="proj-num">02</div>
+      <span class="proj-badge b-done">Completed</span>
+      <div class="proj-ico">🛡️</div>
+      <div class="proj-title">SecureNet AI Cybersecurity Platform</div>
+      <div class="proj-prob">↳ Enterprises need structured tools to measure and train phishing awareness</div>
+      <div class="proj-desc">Full-stack ethical phishing simulation platform for security awareness training. Features Gmail-clone phishing landing page, JWT-secured admin dashboard with role-based access (superadmin/admin/analyst), real-time analytics across 142+ simulated events, CSV export, and campaign lifecycle management. Credentials never stored—only one-way SHA-256 hash with immediate awareness message. Built with Node.js, Express, MongoDB, and React.</div>
+      <div class="proj-tech"><span class="tech-pill">Node.js</span><span class="tech-pill">Express</span><span class="tech-pill">MongoDB</span><span class="tech-pill">React</span><span class="tech-pill">JWT</span><span class="tech-pill">bcrypt</span></div>
+      <div class="proj-links">
+        <a href="https://github.com/sikolia-2/securanet-ai-website" target="_blank" rel="noopener" class="proj-link pl-gh">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+          Website source
+        </a>
+        <a href="https://github.com/sikolia-2/SecureNet-phishing" target="_blank" rel="noopener" class="proj-link pl-gh2">Simulation source</a>
       </div>
     </div>
 
@@ -706,7 +709,7 @@ a:focus-visible,button:focus-visible{
       </div>
       <div class="avail-box" style="margin-top:1.5rem">
         <div class="avail-title"><span class="avail-dot"></span>Available for Opportunities</div>
-        <p class="avail-desc">Open to full-time engineering roles, freelance projects, research collaborations, and graduate programs in Embedded IoT, Full-Stack Development, and Software Engineering.</p>
+        <p class="avail-desc">Open to full-time engineering roles, freelance projects, research collaborations, and graduate programs in Embedded IoT, Full-Stack Development, and Hardware Engineering.</p>
       </div>
     </div>
     <div>
@@ -775,8 +778,7 @@ a:focus-visible,button:focus-visible{
         <div class="blog-title">Building a Pay-Per-Use Door Lock with M-Pesa & ESP32</div>
         <div class="blog-excerpt">How I built a production-ready IoT access control system—ESP32 firmware, M-Pesa Daraja API STK push, Django REST backend with 8 endpoints, SIM800L GSM backup, tamper detection, and KES 2/min billing with four access modes.</div>
         <div class="blog-meta">
-          <span>Coming July 2026 · ~15 min read</span>
-          <span style="font-family:'DM Mono',monospace;font-size:0.65rem;color:var(--accent2)">Draft in progress</span>
+          <span>Draft in progress</span>
         </div>
       </div>
 
@@ -850,16 +852,21 @@ a:focus-visible,button:focus-visible{
 </script>
 
 <script>
-function toggleNav(){document.getElementById('navLinks').classList.toggle('open')}
-
-// Typing effect
-const el=document.getElementById('typingTitle');
-if(el){
-  const txt=el.textContent;el.textContent='';let i=0;
-  setTimeout(()=>{
-    const iv=setInterval(()=>{el.textContent+=txt[i];i++;if(i>=txt.length)clearInterval(iv)},30);
-  },600);
+function toggleNav(force){
+  const links=document.getElementById('navLinks');
+  const button=document.querySelector('.hamburger');
+  const open=typeof force==='boolean'?force:!links.classList.contains('open');
+  links.classList.toggle('open',open);
+  button.setAttribute('aria-expanded',String(open));
+  button.setAttribute('aria-label',open?'Close menu':'Open menu');
 }
+
+document.querySelectorAll('#navLinks a').forEach(link=>{
+  link.addEventListener('click',()=>toggleNav(false));
+});
+document.addEventListener('keydown',event=>{
+  if(event.key==='Escape')toggleNav(false);
+});
 
 // Nav border on scroll
 window.addEventListener('scroll',()=>{
@@ -871,7 +878,7 @@ window.addEventListener('scroll',()=>{
 document.querySelectorAll('a[href^="#"]').forEach(a=>{
   a.addEventListener('click',e=>{
     const t=document.querySelector(a.getAttribute('href'));
-    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'});}
+    if(t){e.preventDefault();t.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});}
   });
 });
 
